@@ -10,7 +10,8 @@ object ApplicationBuild extends Build {
     // Add your project dependencies here,
     jdbc,
     anorm,
- "com.wordnik" %% "swagger-play2-utils" % "1.2.5"
+ "com.wordnik" %% "swagger-play2-utils" % "1.2.5",
+ "ch.qos.logback" % "logback-classic" % "1.0.13"
 
   )
 
@@ -25,7 +26,8 @@ object ApplicationBuild extends Build {
       "sonatype-snapshots" at "https://oss.sonatype.org/content/repositories/snapshots",
       "sonatype-releases" at "https://oss.sonatype.org/content/repositories/releases",
       "java-net" at "http://download.java.net/maven/2",
-      "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/")  
+      "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/",
+      "Maven Central Repository" at "http://repo.maven.apache.org/")  
 )
 
 }

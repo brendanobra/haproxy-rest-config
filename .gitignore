@@ -13,3 +13,7 @@ sized/
 thumbs/
 _thumbs/
 */expressionengine/cache/*
+.idea
+.idea_modules
+.target
+.worksheet
