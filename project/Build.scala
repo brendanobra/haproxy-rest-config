@@ -10,8 +10,8 @@ object ApplicationBuild extends Build {
     // Add your project dependencies here,
     jdbc,
     anorm,
- "com.wordnik" %% "swagger-play2-utils" % "1.2.5",
- "ch.qos.logback" % "logback-classic" % "1.0.13"
+    "com.wordnik" %% "swagger-play2-utils" % "1.2.5"
+
 
   )
 

@@ -1,4 +1,4 @@
-@(ports: Set[Int])
+@(port: Int,proxies: scala.collection.mutable.Set[String])
 
 <!DOCTYPE html>
 
@@ -10,11 +10,10 @@
         <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
     </head>
     <body>
-        <h1>Mapped Ports:</h1>
-        <div>Debug: @ports</div>
+        <h1>Proxied routes for port=<b>@port</b></h1>
         <ul>
-            @ports.map { port =>
-               <li>@port</li>
+            @proxies.map { proxy =>
+               <li><@proxy</li>
             }
         </ul>
     </body>

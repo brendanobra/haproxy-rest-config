@@ -5,9 +5,9 @@
 
 # Home page
 
-#GET     /ha/list                      controllers.Application.list()
-#GET     /ha/routes/:id                controllers.Application.routes(id: Int)
-#PUT     /ha/addRoute/:id               controllers.Application.addRoute(id: Int)
+GET     /list                      controllers.Application.list()
+GET     /routes/:port                controllers.Application.routes(port: Int)
+#PUT     /addRoute/:id               controllers.Application.addRoute(id: Int)
 GET     /json                   controllers.Application.json
 GET     /                      controllers.Application.index
 

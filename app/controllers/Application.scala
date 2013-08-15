@@ -5,22 +5,29 @@ import play.api._
 import play.api.mvc._
 import play.api.libs.json.Json
 import scala.collection.mutable
+import org.slf4j.LoggerFactory
 
 object Application extends Controller {
   val mappedRoutes: RouteMap=new RouteMap()
-  mappedRoutes.map.addBinding(1,"anItem")
+  mappedRoutes.map.addBinding(987,"anItem")
+  mappedRoutes.map.addBinding(654,"another")
+  val log: org.slf4j.Logger=LoggerFactory.getLogger(this.getClass);
+
 
   def index = Action {
     Ok(views.html.index("Your new application is ready."))
   }
 
   def json = Action {
+    Logger.info("json method called Standard Logger ");
+    log.info("json method called slf4j 1={}, 2={}",Array[Object]("pram1","param2"))
     Ok(HaProxy.foo)
   }
 
 
-  def routes(id: Int): mutable.Set[String] = {
-    mappedRoutes.routes(id)
+  def routes(port: Int)=Action {
+    val proxies=mappedRoutes.routes(port)
+    Ok(views.html.showRoutes(port,proxies))
 
   }
 
@@ -42,8 +49,13 @@ object Application extends Controller {
 
   }
 
-  def list(): Set[Int] = {
-    mappedRoutes.map.keySet.toSet[Int];
+  def list()= Action  {
+
+    var ports= mappedRoutes.map.keySet.toSet[Int];
+    if(ports.size==0) {
+      ports=Set(1234,5678)
+    }
+    Ok(views.html.listPorts(ports))
   }
 
 
