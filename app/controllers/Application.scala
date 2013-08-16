@@ -9,7 +9,8 @@ import scala.collection.mutable
 
 object Application extends Controller with Logging {
   val mappedRoutes: RouteMap=new RouteMap()
-  mappedRoutes.map.addBinding(987,"anItem")
+  mappedRoutes.map.addBinding(987,"first for 987")
+  mappedRoutes.map.addBinding(987,"second for 987")
   mappedRoutes.map.addBinding(654,"another")
 
 
@@ -27,6 +28,8 @@ object Application extends Controller with Logging {
 
   def routes(port: Int)=Action {
     val proxies=mappedRoutes.routes(port)
+
+    proxies.map(proxy=>{logger.debug("proxy ={}",proxy)})
     Ok(views.html.showRoutes(port,proxies))
 
   }

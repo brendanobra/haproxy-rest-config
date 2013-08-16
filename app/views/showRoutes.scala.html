@@ -10,10 +10,13 @@
         <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
     </head>
     <body>
-        <h1>Proxied routes for port=<b>@port</b></h1>
+        <div class="breadcrumbs">
+            <a href="@routes.Application.list">all ports</a> &gt; <b>@port</b>
+        </div>
+        <br/>
         <ul>
-            @proxies.map { proxy =>
-               <li><@proxy</li>
+            @proxies.map { aProxy =>
+               <li>@aProxy</li>
             }
         </ul>
     </body>
