@@ -1,17 +1,16 @@
 package controllers
 
 import model.RouteMap
-import play.api._
+import  com.typesafe.scalalogging.slf4j.Logging //This gives better support for slf4j interface than play's Logger.
 import play.api.mvc._
 import play.api.libs.json.Json
 import scala.collection.mutable
-import org.slf4j.LoggerFactory
 
-object Application extends Controller {
+
+object Application extends Controller with Logging {
   val mappedRoutes: RouteMap=new RouteMap()
   mappedRoutes.map.addBinding(987,"anItem")
   mappedRoutes.map.addBinding(654,"another")
-  val log: org.slf4j.Logger=LoggerFactory.getLogger(this.getClass);
 
 
   def index = Action {
@@ -19,8 +18,9 @@ object Application extends Controller {
   }
 
   def json = Action {
-    Logger.info("json method called Standard Logger ");
-    log.info("json method called slf4j 1={}, 2={}",Array[Object]("pram1","param2"))
+    logger.info("json method called Standard Logger ");
+    logger.info("try {} and {}","this","that")
+
     Ok(HaProxy.foo)
   }
 

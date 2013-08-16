@@ -10,7 +10,8 @@ object ApplicationBuild extends Build {
     // Add your project dependencies here,
     jdbc,
     anorm,
-    "com.wordnik" %% "swagger-play2-utils" % "1.2.5"
+    "com.typesafe" %% "scalalogging-slf4j" % "1.0.1",
+    "com.wordnik" %% "swagger-play2-utils" % "1.2.5" excludeAll(ExclusionRule(organization="org.slf4j"))
 
 
   )
